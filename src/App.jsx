@@ -5,24 +5,15 @@ import {
 import {
   Menu
 } from "./Header"
-import Car from "./Car"
-import Login from './Login';
-import { Routes, Route } from "react-router-dom";
-import Hello1 from "./Hello1"
+import Router from "./Router"
+
 function App() {
   return (
 
     <div className="App">
       <Hello />
       <Menu />
-      <Routes>
-        <Route path="/">
-          <Route path="login" element={<Login />} />
-          <Route path="hello" element={<Hello1 name={"hai dù"} />} />
-          <Route path="car" element={<Car />} />
-          <Route path="*" />
-        </Route>
-      </Routes>
+      <Router/>
     </div>
   );
 }

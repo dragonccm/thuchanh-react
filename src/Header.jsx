@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 const Item = ({ link, content }) => {
     return (
         <>
@@ -7,14 +9,16 @@ const Item = ({ link, content }) => {
                 color: "white",
                 fontSize: "1rem",
                 borderRadius: "10px",
-
-            }}><a href={link} style={{
-                textDecoration: "none",
-                color: "white"
-            }}>{content}</a></li>
+            }}>
+                <NavLink to={link} style={{
+                    textDecoration: "none",
+                    color: "white"
+                }}>{content}</NavLink>
+            </li>
         </>
     );
 }
+
 const listNanme = [
     {
         url: "/login",
@@ -29,6 +33,7 @@ const listNanme = [
         text: "car"
     }
 ]
+
 const Menu = () => {
     return (
         <>
@@ -38,10 +43,9 @@ const Menu = () => {
                 justifyContent: "center",
                 listStyle: "none",
                 gap: "1rem",
-
             }}>
                 {listNanme.map((data) => (
-                    <Item link={data.url} content={data.text} />
+                    <Item key={data.url} link={data.url} content={data.text} />
                 ))}
             </ul>
         </>
@@ -51,4 +55,4 @@ const Menu = () => {
 export {
     Menu,
     Item
-} 
+}
